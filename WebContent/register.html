@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Split It</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-split-body">
+
+  <div class="split-auth-container">
+    <!-- Left 50%: Image fills entire left half -->
+    <div class="split-auth-left">
+      <img src="images/split_it_logo.png" alt="Split It" class="split-hero-logo">
+    </div>
+
+    <!-- Right 50%: Centered Register Form with pure white background -->
+    <div class="split-auth-right">
+      <div class="auth-form-card">
+        <div class="auth-form-header">
+          <h1 class="auth-form-title">Create an account</h1>
+          <p class="auth-form-subtitle">Start tracking personal and split expenses</p>
+        </div>
+
+        <div id="authAlert" class="alert-message"></div>
+
+        <form id="registerForm" action="register" method="POST" class="auth-fields">
+          <div class="form-group">
+            <label class="form-label" for="username">Username</label>
+            <input type="text" id="username" name="username" class="form-input" placeholder="Choose a username" required autofocus>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-input" placeholder="At least 6 characters" minlength="6" required>
+          </div>
+
+          <button type="submit" class="btn-primary auth-submit-btn">Create account</button>
+        </form>
+
+        <p class="auth-switch-text">
+          Already have an account? <a href="login.html">Sign in</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const err = params.get('error');
+    if (err) {
+      const alertEl = document.getElementById('authAlert');
+      alertEl.textContent = decodeURIComponent(err);
+      alertEl.className = 'alert-message error';
+    }
+  </script>
+</body>
+</html>

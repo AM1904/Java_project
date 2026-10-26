@@ -1,0 +1,14 @@
+# Compiled class files
+out/
+bin/
+WebContent/WEB-INF/classes/
+*.class
+
+# IDE files
+.vscode/
+.settings/
+
+# Temporary / OS files
+Thumbs.db
+Desktop.ini
+*.log
